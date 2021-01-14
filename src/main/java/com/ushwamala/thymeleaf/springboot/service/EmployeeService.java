@@ -17,5 +17,5 @@ public interface EmployeeService {
 
     void updateEmployee(int employeeId, Employee employee);
 
-    public List<Employee> searchBy(String theName);
+    List<Employee> searchBy(String theName);
 }
