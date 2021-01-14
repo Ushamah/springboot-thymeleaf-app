@@ -1,6 +1,7 @@
 package com.ushwamala.thymeleaf.springboot.controller;
 
 import com.ushwamala.thymeleaf.springboot.entity.Employee;
+import com.ushwamala.thymeleaf.springboot.exceptionhandling.EmployeeNotFoundException;
 import com.ushwamala.thymeleaf.springboot.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,8 +54,14 @@ public class EmployeeController {
 
     @GetMapping("updateEmployeeForm")
     public String updateEmployeeForm(@RequestParam("employeeId") int employeeId, Model theModel) {
+
+        //Retrieve the employee using the employeeId
         Employee employee = employeeService.getEmployeeById(employeeId);
+
+        //Add found employee to the model
         theModel.addAttribute("employee", employee);
+
+        //return view
         return "/employees/employee-form";
     }
 
