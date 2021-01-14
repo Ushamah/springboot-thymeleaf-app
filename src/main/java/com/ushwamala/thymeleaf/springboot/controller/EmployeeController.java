@@ -3,6 +3,8 @@ package com.ushwamala.thymeleaf.springboot.controller;
 import com.ushwamala.thymeleaf.springboot.entity.Employee;
 import com.ushwamala.thymeleaf.springboot.exceptionhandling.EmployeeNotFoundException;
 import com.ushwamala.thymeleaf.springboot.service.EmployeeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,7 @@ import java.util.List;
 @RequestMapping("/employees")
 public class EmployeeController {
 
+  private static final Logger logger = LoggerFactory.getLogger("Log_EmployeeController");
 
     @Autowired
     private EmployeeService employeeService;

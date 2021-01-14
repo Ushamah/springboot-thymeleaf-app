@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import javax.sql.DataSource;
 
@@ -13,9 +14,14 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	//https://www.youtube.com/watch?v=LKvrFltAgCQ&ab_channel=JavaBrains
+	//https://www.youtube.com/watch?v=TNt3GHuayXs&ab_channel=JavaBrains
+
 	//Inject a reference data source
 	@Autowired
 	private DataSource securityDataSource;
+
+	private UserDetailsService userDetailsService;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
